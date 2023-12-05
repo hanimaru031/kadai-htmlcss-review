@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-
 public class DbConnectSample01 {
 
     public static void main(String[] args) {
@@ -20,10 +19,8 @@ public class DbConnectSample01 {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             // 2. DBと接続する
-            con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost/world?useSSL=false&allowPublicKeyRetrieval=true",
-                    "root",
-                    "Haruharu31");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/world?useSSL=false&allowPublicKeyRetrieval=true",
+                    "root", "Haruharu31");
 
             // 4. DBとやりとりする窓口（Statementオブジェクト）の作成
             stmt = con.createStatement();
@@ -33,13 +30,13 @@ public class DbConnectSample01 {
             rs = stmt.executeQuery(sql);
 
             // 7. 結果を表示する
-            while( rs.next() ){
+            while (rs.next()) {
                 // Name列の値を取得
                 String name = rs.getString("Name");
                 // 取得した値を表示
                 System.out.println(name);
             }
-           } catch (ClassNotFoundException e) {
+        } catch (ClassNotFoundException e) {
             System.err.println("JDBCドライバのロードに失敗しました。");
             e.printStackTrace();
         } catch (SQLException e) {
@@ -47,15 +44,15 @@ public class DbConnectSample01 {
             e.printStackTrace();
         } finally {
             // 8. 接続を閉じる
-            if( rs != null ){
+            if (rs != null) {
                 try {
                     rs.close();
                 } catch (SQLException e) {
                     System.err.println("ResultSetを閉じるときにエラーが発生しました。");
                     e.printStackTrace();
-        }
-    }
-            if( stmt != null ){
+                }
+            }
+            if (stmt != null) {
                 try {
                     stmt.close();
                 } catch (SQLException e) {
@@ -69,8 +66,8 @@ public class DbConnectSample01 {
                 } catch (SQLException e) {
                     System.err.println("データベース切断時にエラーが発生しました。");
                     e.printStackTrace();
+                }
             }
         }
     }
- }
- }
+}
