@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+#side_banner ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+#wrapper {
+    width: 1000px;
+    display: flex;
+}
+
+#main {
+    width: 70%;
+    background-color: #ccffcc;
+}
+
+#global_navi {
+    width: 30%;
+    background-color: #ccccff;
+}
+ header{
+    background-color:#ffcccc;
+}
+ footer{
+    background-color:#ffccff;
+}
